@@ -12,12 +12,12 @@ const server = http.createServer((req, res) => {
     const { url } = req
     if (url === "/") {
         const data = fs.readFileSync('./public/app.html');
-        res.setHeader("Content-Type", "text/html");
+        res.setHeader("Content-Type", "text/html"); //
         res.write(data);
         res.end();
     } else if (url === "/weather") {
 
-        const apiURL = getWeatherURL('kolkata');
+        const apiURL = getWeatherURL('mumbai');
 
         axios.get(apiURL).then((apiResponse) => {
             res.setHeader("Content-Type", "application/json");
